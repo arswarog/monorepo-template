@@ -1,0 +1,2 @@
+# monorepo
+Template for monorepo

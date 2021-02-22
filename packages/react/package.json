@@ -1,0 +1,36 @@
+{
+  "name": "@monorepo/react",
+  "version": "0.1.0",
+  "scripts": {
+    "prebuild": "npm run clean",
+    "build": "../../node_modules/.bin/microbundle",
+    "clean": "../../node_modules/.bin/rimraf build",
+    "size": "../../node_modules/.bin/size-limit"
+  },
+  "author": "Arswarog",
+  "source": "src/index.ts",
+  "main": "build/index.js",
+  "umd:main": "build/index.umd.js",
+  "module": "build/index.es.js",
+  "unpkg": "build/index.umd.js",
+  "types": "build/index.d.ts",
+  "directories": {
+    "lib": "src",
+    "test": "tests"
+  },
+  "sideEffects": false,
+  "dependencies": {
+  },
+  "files": [
+    "/README.md",
+    "/package.json",
+    "/index.ts",
+    "/build"
+  ],
+  "size-limit": [
+    {
+      "limit": "1 KB",
+      "path": "build/*.js"
+    }
+  ]
+}
