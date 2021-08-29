@@ -1,14 +1,16 @@
 import { Injectable } from '@nestjs/common';
+import { IHelloResponse } from './app.types';
+import { HelloDto } from './dto/hello.dto';
 
 @Injectable()
 export class AppService {
-    getHello(): object {
-        return {
+    getHellos(): HelloDto[] {
+        return [{
             data: 'Hello World!',
-        };
+        }];
     }
 
-    getHelloWithName(id: string): object {
+    getHelloWithName(id: string): IHelloResponse {
         return {
             data: `Hello ${id}!`,
         };
