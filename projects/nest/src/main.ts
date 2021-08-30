@@ -6,15 +6,16 @@ import { INestApplication } from '@nestjs/common';
 async function bootstrap() {
     const app = await NestFactory.create(AppModule, {cors: true});
 
-    addSwagger(app);
-    enableCors(app);
+    app.setGlobalPrefix('api');
+    swagger(app);
+    cors(app);
 
     await app.listen(3000);
 }
 
 bootstrap();
 
-function addSwagger(app: INestApplication) {
+function swagger(app: INestApplication) {
     const config = new DocumentBuilder()
         .setTitle('Todo example')
         .setDescription('The todo API description')
@@ -24,7 +25,7 @@ function addSwagger(app: INestApplication) {
     SwaggerModule.setup('swagger', app, document);
 }
 
-function enableCors(app: INestApplication) {
+function cors(app: INestApplication) {
     app.enableCors({
         origin: ['localhost:3010'],
         methods: ['GET', 'POST', 'DELETE'],
