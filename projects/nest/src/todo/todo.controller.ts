@@ -9,7 +9,7 @@ import {
 } from '@nestjs/swagger';
 
 @ApiTags('todos')
-@Controller('todo')
+@Controller()
 export class TodoController {
     constructor(private readonly service: TodoService) {}
 
